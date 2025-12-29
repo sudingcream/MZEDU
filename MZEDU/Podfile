@@ -7,4 +7,6 @@ target 'MZEDU' do
 
   # Pods for MZEDU
   pod 'SnapKit'
+  pod 'KakaoSDKAuth'
+  pod 'KakaoSDKUser'
 end

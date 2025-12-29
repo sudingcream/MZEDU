@@ -24,7 +24,15 @@ final class MainTabBarController: UITabBarController {
             image: UIImage(named: "community_off"),
             selectedImage: UIImage(named: "community_on")
         )
-
+ 
+        let lessonVC = LessonViewController()
+        lessonVC.view.backgroundColor = .white
+        lessonVC.tabBarItem = UITabBarItem(
+            title: "과외찾기",
+            image: UIImage(named: "lesson_off")?.withRenderingMode(.alwaysOriginal),
+            selectedImage: UIImage(named: "lesson_on")?.withRenderingMode(.alwaysOriginal)
+        )
+  
         let myVC = MyViewController()
         myVC.view.backgroundColor = .white
         myVC.tabBarItem = UITabBarItem(
@@ -33,8 +41,9 @@ final class MainTabBarController: UITabBarController {
             selectedImage: UIImage(named: "user_on")
         )
 
-        viewControllers = [homeVC, communityVC, myVC]
+        viewControllers = [homeVC, communityVC, lessonVC, myVC]
     }
+
     private func setupAppearance() {
         let selectedColor = UIColor(hex: "#4E74F9")
         let unselectedColor = UIColor(hex: "#9199A6")
@@ -56,5 +65,4 @@ final class MainTabBarController: UITabBarController {
             item.setTitleTextAttributes(selectedAttributes, for: .selected)
         }
     }
-
 }

@@ -11,10 +11,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = MainTabBarController()
-        window.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
 
-        self.window = window
+        if AuthManager.shared.isLoggedIn {
+            window?.rootViewController = MainTabBarController()
+        } else {
+            window?.rootViewController = MainTabBarController()
+        }
+
+        window?.makeKeyAndVisible()
     }
 }

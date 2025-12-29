@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "lesson_off.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
