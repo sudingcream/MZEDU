@@ -148,7 +148,7 @@ extension TeacherRegisterViewController {
         fileInfoView.backgroundColor = UIColor(hex: "#F5F6F8")
         fileInfoView.layer.cornerRadius = 10
 
-        fileNameLabel.text = "파일을 선택해주세요."
+        fileNameLabel.text = "업로드 된 증명서가 없습니다."
         fileNameLabel.font = .systemFont(ofSize: 14)
 
         removeFileButton.setImage(UIImage(systemName: "xmark"), for: .normal)

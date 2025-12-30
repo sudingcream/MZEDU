@@ -61,9 +61,10 @@ final class CommunityPostCell: UITableViewCell {
     private func setupLayout() {
 
         containerView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(8)
-            $0.bottom.equalToSuperview().offset(-8)
+            $0.top.equalToSuperview()
+            $0.bottom.equalToSuperview()
             $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(100)
         }
 
         typeLabel.snp.makeConstraints {
@@ -71,17 +72,18 @@ final class CommunityPostCell: UITableViewCell {
         }
 
         titleLabel.snp.makeConstraints {
-            $0.top.equalTo(typeLabel.snp.bottom).offset(8)
+            $0.top.equalTo(typeLabel.snp.bottom).offset(2)
             $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview().inset(16)
         }
 
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(6)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(3)
             $0.leading.trailing.equalToSuperview().inset(16)
         }
 
         likeLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-16)
+            $0.top.equalTo(contentLabel.snp.bottom).offset(2)
             $0.leading.equalToSuperview().offset(16)
         }
 

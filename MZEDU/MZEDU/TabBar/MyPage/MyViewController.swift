@@ -5,16 +5,16 @@ final class MyViewController: UIViewController {
 
     // MARK: - UI
 
-    private let titleLabel = UILabel()
+    private var titleLabel = UILabel()
 
     private let infoContainerView = UIView()
-    private let nameLabel = UILabel()
-    private let subInfoLabel = UILabel()
+    private var nameLabel = UILabel()
+    private var subInfoLabel = UILabel()
     private let editButton = UIButton(type: .system)
 
     private let menuStackView = UIStackView()
 
-    private let versionLabel = UILabel()
+    private var versionLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,17 +29,23 @@ extension MyViewController {
     private func configureUI() {
         view.backgroundColor = .white
 
-        // title
-        titleLabel.text = "내 정보"
-        titleLabel.font = .boldSystemFont(ofSize: 22)
-
-        // user info
-        nameLabel.text = "인천수능1등"
-        nameLabel.font = .boldSystemFont(ofSize: 18)
-
-        subInfoLabel.text = "고2 / 인천광역시 동중부"
-        subInfoLabel.font = .systemFont(ofSize: 14)
-        subInfoLabel.textColor = .gray
+        titleLabel = .styled(
+            text: "내 정보",
+            font: .boldSystemFont(ofSize: 22),
+            color: .white
+        )
+        
+        nameLabel = .styled(
+            text: "인천수능1등",
+            font: .boldSystemFont(ofSize: 18),
+            color: .systemGray
+        )
+        
+        subInfoLabel = .styled(
+            text: "고2 / 인천광역시 동중부",
+            font: .systemFont(ofSize: 14),
+            color: .gray
+        )
 
         editButton.setTitle("프로필 수정", for: .normal)
         editButton.setTitleColor(UIColor(hex: "#4E74F9"), for: .normal)
@@ -57,9 +63,11 @@ extension MyViewController {
         }
 
         // version
-        versionLabel.text = "버전 정보 1.0.0"
-        versionLabel.font = .systemFont(ofSize: 12)
-        versionLabel.textColor = .lightGray
+        versionLabel = .styled(
+            text: "버전 정보 1.0.0",
+            font: .systemFont(ofSize: 12),
+            color: .lightGray
+        )
 
         // hierarchy
         view.addSubview(titleLabel)

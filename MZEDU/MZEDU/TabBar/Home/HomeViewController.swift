@@ -5,7 +5,7 @@ final class HomeViewController: UIViewController {
 
     // MARK: - Top Search Area
     private let searchView = UIView()
-    private let titleLabel = UILabel()
+    private var titleLabel = UILabel()
     private let searchContainerView = UIView()
     private let searchIconImageView = UIImageView()
     private let placeholderLabel = UILabel()
@@ -27,16 +27,13 @@ extension HomeViewController {
     private func configureUI() {
         view.backgroundColor = .white
         title = "홈"
-
-        // 🔵 searchView
+ 
         searchView.backgroundColor = UIColor(hex: "#2158E8")
 
-        titleLabel.text = "주변 학원 둘러보기"
-        titleLabel.font = .boldSystemFont(ofSize: 16)
-        titleLabel.textColor = .white
-        titleLabel.attributedText = NSAttributedString(
-            string: titleLabel.text ?? "",
-            attributes: [.kern: -1]
+        titleLabel = .styled(
+            text: "주변 학원 둘러보기",
+            font: .boldSystemFont(ofSize: 16),
+            color: .white
         )
 
         searchContainerView.backgroundColor = .white
@@ -131,14 +128,17 @@ extension HomeViewController {
 private extension HomeViewController {
 
     func makeSectionTitle(_ title: String) -> UILabel {
-        let label = UILabel()
-        label.text = title
-        label.font = .boldSystemFont(ofSize: 16)
-        label.textColor = .black
-        return label
+        UILabel.styled(
+            text: title,
+            font: .boldSystemFont(ofSize: 20)
+        )
     }
 
-    func makeCardView(title: String, subtitle: String, description: String) -> UIView {
+    func makeCardView(
+        title: String,
+        subtitle: String,
+        description: String
+    ) -> UIView {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 12
@@ -147,20 +147,23 @@ private extension HomeViewController {
         view.layer.shadowRadius = 6
         view.layer.shadowOffset = .init(width: 0, height: 2)
 
-        let titleLabel = UILabel()
-        titleLabel.font = .boldSystemFont(ofSize: 15)
-        titleLabel.text = title
+        let titleLabel = UILabel.styled(
+            text: title,
+            font: .boldSystemFont(ofSize: 15)
+        )
 
-        let subtitleLabel = UILabel()
-        subtitleLabel.font = .systemFont(ofSize: 13)
-        subtitleLabel.textColor = .gray
-        subtitleLabel.text = subtitle
+        let subtitleLabel = UILabel.styled(
+            text: subtitle,
+            font: .systemFont(ofSize: 13),
+            color: .gray
+        )
 
-        let descLabel = UILabel()
-        descLabel.font = .systemFont(ofSize: 13)
-        descLabel.textColor = .darkGray
-        descLabel.numberOfLines = 0
-        descLabel.text = description
+        let descLabel = UILabel.styled(
+            text: description,
+            font: .systemFont(ofSize: 13),
+            color: .darkGray,
+            numberOfLines: 0
+        )
 
         let stack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, descLabel])
         stack.axis = .vertical
@@ -173,16 +176,16 @@ private extension HomeViewController {
     }
 
     func makeBoardView() -> UIView {
-        let label = UILabel()
-        label.text = "자유게시판 / 비밀게시판"
-        label.font = .systemFont(ofSize: 14)
-        return label
+        UILabel.styled(
+            text: "자유게시판 / 비밀게시판",
+            font: .systemFont(ofSize: 14)
+        )
     }
 
     func makeNoticeView() -> UIView {
-        let label = UILabel()
-        label.text = "서버 점검 안내 · 2시간 전"
-        label.font = .systemFont(ofSize: 14)
-        return label
+        UILabel.styled(
+            text: "서버 점검 안내 · 2시간 전",
+            font: .systemFont(ofSize: 14)
+        )
     }
 }

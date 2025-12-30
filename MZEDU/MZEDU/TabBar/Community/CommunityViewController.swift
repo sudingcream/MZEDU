@@ -48,22 +48,30 @@ extension CommunityViewController {
 extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
 
     private func setupTableView() {
-        tableView.register(
-            CommunityPostCell.self,
-            forCellReuseIdentifier: "CommunityPostCell"
-        )
+        tableView.register(CommunityPostCell.self, forCellReuseIdentifier: "CommunityPostCell")
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 30
+    }
 
-    func tableView(_ tableView: UITableView,
-                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
+    }
+    
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
 
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "CommunityPostCell",

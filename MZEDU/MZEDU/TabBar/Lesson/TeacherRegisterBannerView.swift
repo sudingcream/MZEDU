@@ -5,7 +5,7 @@ import SnapKit
 
 final class TeacherRegisterBannerView: UIView {
 
-    private let titleLabel = UILabel()
+    private var titleLabel = UILabel()
     private let subtitleLabel = UILabel()
     private let avatarView = UIImageView()
 
