@@ -145,7 +145,6 @@ private extension MyViewController {
             $0.height.equalTo(1)
         }
 
-        // ✅ tap gesture 추가
         let tap = UITapGestureRecognizer(
             target: self,
             action: #selector(didTapMenu(_:))

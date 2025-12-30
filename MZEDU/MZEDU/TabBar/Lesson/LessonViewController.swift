@@ -7,7 +7,8 @@ final class LessonViewController: UIViewController {
     private let headerLabel = UILabel()
     private let tableView = UITableView()
     private let teacherBannerView = TeacherRegisterBannerView()
-
+    private let teacherRegisterButton = UIButton()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -32,10 +33,32 @@ extension LessonViewController {
         headerLabel.font = .systemFont(ofSize: 15, weight: .medium)
         headerLabel.textColor = .darkGray
 
-        view.addSubview(screenTitleLabel)
-        view.addSubview(headerLabel)
-        view.addSubview(tableView)
-        view.addSubview(teacherBannerView)
+        teacherRegisterButton.backgroundColor = .clear
+         teacherRegisterButton.addTarget(
+             self,
+             action: #selector(didTapTeacherRegister),
+             for: .touchUpInside
+         )
+
+         view.addSubview(screenTitleLabel)
+         view.addSubview(headerLabel)
+         view.addSubview(tableView)
+         view.addSubview(teacherBannerView)
+         view.addSubview(teacherRegisterButton)
+    }
+}
+
+extension LessonViewController {
+
+}
+
+// MARK: - Action
+extension LessonViewController {
+    @objc private func didTapTeacherRegister() {
+        let viewController = TeacherRegisterViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 }
 
@@ -64,6 +87,9 @@ extension LessonViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-12)
             $0.height.equalTo(72)
+        }
+        teacherRegisterButton.snp.makeConstraints {
+            $0.edges.equalTo(teacherBannerView)
         }
     }
 }
@@ -107,9 +133,5 @@ extension LessonViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        let detailVC = TeacherDetailViewController()
-        detailVC.modalPresentationStyle = .fullScreen
-        present(detailVC, animated: true)
-        
     }
 }

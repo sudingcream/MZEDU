@@ -15,6 +15,9 @@
 		324EFB3D2F0279EA00F9D047 /* TeacherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB3C2F0279E500F9D047 /* TeacherCell.swift */; };
 		324EFB3F2F0279FC00F9D047 /* TeacherRegisterBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB3E2F0279F400F9D047 /* TeacherRegisterBannerView.swift */; };
 		324EFB412F027CC500F9D047 /* TeacherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB402F027CC400F9D047 /* TeacherDetailViewController.swift */; };
+		324EFB432F038BE800F9D047 /* InputRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB422F038BE600F9D047 /* InputRow.swift */; };
+		324EFB452F0393DF00F9D047 /* TeacherRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB442F0393D800F9D047 /* TeacherRegisterViewController.swift */; };
+		324EFB472F03A64300F9D047 /* RegisterFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */; };
 		43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D0DB1CEEAF6A57B43D40F /* Pods_MZEDU.framework */; };
 		44ECDC4B2EFEF66500238450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ECDC4A2EFEF66500238450 /* AppDelegate.swift */; };
 		44ECDC4D2EFEF66500238450 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ECDC4C2EFEF66500238450 /* SceneDelegate.swift */; };
@@ -39,6 +42,9 @@
 		324EFB3C2F0279E500F9D047 /* TeacherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCell.swift; sourceTree = "<group>"; };
 		324EFB3E2F0279F400F9D047 /* TeacherRegisterBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegisterBannerView.swift; sourceTree = "<group>"; };
 		324EFB402F027CC400F9D047 /* TeacherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDetailViewController.swift; sourceTree = "<group>"; };
+		324EFB422F038BE600F9D047 /* InputRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputRow.swift; sourceTree = "<group>"; };
+		324EFB442F0393D800F9D047 /* TeacherRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegisterViewController.swift; sourceTree = "<group>"; };
+		324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFinishViewController.swift; sourceTree = "<group>"; };
 		44ECDC472EFEF66500238450 /* MZEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MZEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44ECDC4A2EFEF66500238450 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44ECDC4C2EFEF66500238450 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,9 @@
 		324EFB242F020C8F00F9D047 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */,
+				324EFB442F0393D800F9D047 /* TeacherRegisterViewController.swift */,
+				324EFB422F038BE600F9D047 /* InputRow.swift */,
 				324EFB402F027CC400F9D047 /* TeacherDetailViewController.swift */,
 				324EFB3E2F0279F400F9D047 /* TeacherRegisterBannerView.swift */,
 				324EFB3C2F0279E500F9D047 /* TeacherCell.swift */,
@@ -331,15 +340,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				44ECDC4F2EFEF66500238450 /* ViewController.swift in Sources */,
+				324EFB432F038BE800F9D047 /* InputRow.swift in Sources */,
 				44ECDC4B2EFEF66500238450 /* AppDelegate.swift in Sources */,
 				324EFB2F2F0233C900F9D047 /* AuthManager.swift in Sources */,
 				44ECDC642EFEF6B100238450 /* MainTabBarController.swift in Sources */,
 				44ECDC4D2EFEF66500238450 /* SceneDelegate.swift in Sources */,
 				44ECDC662EFEF6B900238450 /* TabBarItemFactory.swift in Sources */,
 				44ECDC682EFEF6C300238450 /* HomeViewController.swift in Sources */,
+				324EFB452F0393DF00F9D047 /* TeacherRegisterViewController.swift in Sources */,
 				44ECDC6C2EFEF6E000238450 /* MyViewController.swift in Sources */,
 				44ECDC6A2EFEF6D200238450 /* CommunityViewController.swift in Sources */,
 				324EFB292F02116300F9D047 /* UIImage+.swift in Sources */,
+				324EFB472F03A64300F9D047 /* RegisterFinishViewController.swift in Sources */,
 				324EFB312F024D2D00F9D047 /* CommunityPostCell.swift in Sources */,
 				324EFB3F2F0279FC00F9D047 /* TeacherRegisterBannerView.swift in Sources */,
 				324EFB272F020CB900F9D047 /* LessonViewController.swift in Sources */,

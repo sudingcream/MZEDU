@@ -1,5 +1,7 @@
 import UIKit
 import SnapKit
+import UIKit
+import SnapKit
 
 final class TeacherRegisterBannerView: UIView {
 
@@ -20,11 +22,11 @@ final class TeacherRegisterBannerView: UIView {
         layer.cornerRadius = 16
 
         titleLabel.text = "선생님이세요?"
-        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.font = .boldSystemFont(ofSize: 18)
         titleLabel.textColor = .white
 
         subtitleLabel.text = "선생님 목록에 등록하고 학생을 만나보세요!"
-        subtitleLabel.font = .systemFont(ofSize: 13)
+        subtitleLabel.font = .systemFont(ofSize: 14)
         subtitleLabel.textColor = .white
 
         avatarView.image = UIImage(named: "teacherIcon")
@@ -43,7 +45,7 @@ final class TeacherRegisterBannerView: UIView {
         }
 
         subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(4)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(2)
             $0.leading.equalTo(titleLabel)
         }
 
