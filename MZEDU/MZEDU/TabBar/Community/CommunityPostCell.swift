@@ -74,7 +74,7 @@ final class CommunityPostCell: UITableViewCell {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(typeLabel.snp.bottom).offset(2)
             $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview().inset(16)
+//            $0.bottom.equalToSuperview().inset(16)
         }
 
         contentLabel.snp.makeConstraints {

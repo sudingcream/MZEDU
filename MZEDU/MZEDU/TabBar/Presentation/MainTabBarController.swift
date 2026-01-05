@@ -9,60 +9,61 @@ final class MainTabBarController: UITabBarController {
     }
 
     private func setupTabs() {
+
         let homeVC = HomeViewController()
-        homeVC.view.backgroundColor = .white
         homeVC.tabBarItem = UITabBarItem(
             title: "홈",
-            image: UIImage(named: "home_off"),
-            selectedImage: UIImage(named: "home_on")
+            image: UIImage(named: "home_off")?.withRenderingMode(.alwaysTemplate),
+            selectedImage: UIImage(named: "home_on")?.withRenderingMode(.alwaysTemplate)
         )
 
         let communityVC = CommunityViewController()
-        communityVC.view.backgroundColor = .white
         communityVC.tabBarItem = UITabBarItem(
             title: "커뮤니티",
-            image: UIImage(named: "community_off"),
-            selectedImage: UIImage(named: "community_on")
+            image: UIImage(named: "community_off")?.withRenderingMode(.alwaysTemplate),
+            selectedImage: UIImage(named: "community_on")?.withRenderingMode(.alwaysTemplate)
         )
- 
+
         let lessonVC = LessonViewController()
-        lessonVC.view.backgroundColor = .white
         lessonVC.tabBarItem = UITabBarItem(
             title: "과외찾기",
-            image: UIImage(named: "lesson_off")?.withRenderingMode(.alwaysOriginal),
-            selectedImage: UIImage(named: "lesson_on")?.withRenderingMode(.alwaysOriginal)
+            image: UIImage(named: "lesson_off")?.withRenderingMode(.alwaysTemplate),
+            selectedImage: UIImage(named: "lesson_on")?.withRenderingMode(.alwaysTemplate)
         )
-  
+
         let myVC = MyViewController()
-        myVC.view.backgroundColor = .white
         myVC.tabBarItem = UITabBarItem(
             title: "MY",
-            image: UIImage(named: "user_off"),
-            selectedImage: UIImage(named: "user_on")
+            image: UIImage(named: "user_off")?.withRenderingMode(.alwaysTemplate),
+            selectedImage: UIImage(named: "user_on")?.withRenderingMode(.alwaysTemplate)
         )
 
         viewControllers = [homeVC, communityVC, lessonVC, myVC]
     }
 
     private func setupAppearance() {
+
         let selectedColor = UIColor(hex: "#4E74F9")
         let unselectedColor = UIColor(hex: "#9199A6")
 
-        tabBar.tintColor = selectedColor
-        tabBar.unselectedItemTintColor = unselectedColor
-        tabBar.backgroundColor = .white
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
 
-        let selectedAttributes: [NSAttributedString.Key: Any] = [
+        appearance.stackedLayoutAppearance.selected.iconColor = selectedColor
+        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
             .foregroundColor: selectedColor
         ]
 
-        let normalAttributes: [NSAttributedString.Key: Any] = [
+        appearance.stackedLayoutAppearance.normal.iconColor = unselectedColor
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [
             .foregroundColor: unselectedColor
         ]
 
-        tabBar.items?.forEach { item in
-            item.setTitleTextAttributes(normalAttributes, for: .normal)
-            item.setTitleTextAttributes(selectedAttributes, for: .selected)
+        tabBar.standardAppearance = appearance
+
+        if #available(iOS 15.0, *) {
+            tabBar.scrollEdgeAppearance = appearance
         }
     }
 }

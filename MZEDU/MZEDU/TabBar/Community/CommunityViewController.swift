@@ -13,11 +13,38 @@ final class CommunityViewController: UIViewController {
     private let categories = ["전체", "자유게시판", "비밀게시판"]
     private var selectedIndex = 0
 
+    private var allPosts: [CommunityPost] = [
+        CommunityPost(
+            type: "자유게시판",
+            title: "대치동 수학학원 어디가 좋을까요?",
+            content: "이번에 중학교 올라가는데 친구들 따라 다니긴 싫네요..",
+            time: "1분전",
+            likeCount: 12
+        ),
+        CommunityPost(
+            type: "비밀게시판",
+            title: "중2 아이 수학 고민입니다",
+            content: "학원 옮겨야 할까요?",
+            time: "3분전",
+            likeCount: 5
+        ),
+        CommunityPost(
+            type: "자유게시판",
+            title: "과외 선생님 추천해주세요",
+            content: "여학생입니다",
+            time: "10분전",
+            likeCount: 2
+        )
+    ]
+
+    private var filteredPosts: [CommunityPost] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
         setupLayout()
         setupTableView()
+        applyFilter()
     }
 }
 
@@ -35,14 +62,15 @@ extension CommunityViewController {
 
         categoryStackView.arrangedSubviews.enumerated().forEach { index, view in
             guard let button = view as? UIButton else { return }
-
             let isSelected = index == selectedIndex
             button.backgroundColor = isSelected ? UIColor(hex: "#4E74F9") : UIColor(hex: "#F2F2F2")
             button.setTitleColor(isSelected ? .white : .gray, for: .normal)
         }
 
+        applyFilter()
         tableView.reloadData()
     }
+
 }
 
 extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
@@ -55,7 +83,7 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return filteredPosts.count
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -68,6 +96,7 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         return view
     }
     
+ 
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
@@ -80,12 +109,14 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
 
+        let post = filteredPosts[indexPath.row]
+
         cell.configure(
-            type: indexPath.row % 2 == 0 ? "자유게시판" : "비밀게시판",
-            title: "대치동 수학학원 어디가 좋을까요?",
-            content: "이번에 중학교 올라가는데 친구들 따라 다니긴 싫네요..",
-            time: "\(indexPath.row + 1)분전",
-            likeCount: 12
+            type: post.type,
+            title: post.title,
+            content: post.content,
+            time: post.time,
+            likeCount: post.likeCount
         )
 
         return cell
@@ -93,6 +124,18 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension CommunityViewController {
+    private func applyFilter() {
+        switch selectedIndex {
+        case 0: // 전체
+            filteredPosts = allPosts
+        case 1: // 자유게시판
+            filteredPosts = allPosts.filter { $0.type == "자유게시판" }
+        case 2: // 비밀게시판
+            filteredPosts = allPosts.filter { $0.type == "비밀게시판" }
+        default:
+            filteredPosts = allPosts
+        }
+    }
 
     private func configureUI() {
         view.backgroundColor = .white
@@ -169,4 +212,5 @@ extension CommunityViewController {
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
+    
 }

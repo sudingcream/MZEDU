@@ -27,7 +27,8 @@ extension HomeViewController {
     private func configureUI() {
         view.backgroundColor = .white
         title = "홈"
- 
+
+        // 🔹 Top Search Area
         searchView.backgroundColor = UIColor(hex: "#2158E8")
 
         titleLabel = .styled(
@@ -42,18 +43,20 @@ extension HomeViewController {
         searchIconImageView.image = UIImage(named: "searchIcon")
         searchIconImageView.contentMode = .scaleAspectFit
 
-        placeholderLabel.text = "학원 이름이나 지역을 검색하세요"
-        placeholderLabel.font = .systemFont(ofSize: 13, weight: .medium)
-        placeholderLabel.textColor = UIColor(hex: "#AEAEB2")
         placeholderLabel.attributedText = NSAttributedString(
-            string: placeholderLabel.text ?? "",
-            attributes: [.kern: -1]
+            string: "학원 이름이나 지역을 검색하세요",
+            attributes: [
+                .font: UIFont.systemFont(ofSize: 13, weight: .medium),
+                .foregroundColor: UIColor(hex: "#AEAEB2"),
+                .kern: -1
+            ]
         )
 
-        // Scroll
+        // 🔹 Scroll Area
         contentStackView.axis = .vertical
         contentStackView.spacing = 20
 
+        // MARK: - View Hierarchy
         view.addSubview(searchView)
         view.addSubview(scrollView)
 
@@ -64,19 +67,44 @@ extension HomeViewController {
 
         scrollView.addSubview(contentStackView)
 
-        // 섹션 추가
+        // MARK: - Content Sections
+
+        // 1️⃣ 맞춤 추천
         contentStackView.addArrangedSubview(makeSectionTitle("맞춤 추천"))
-        contentStackView.addArrangedSubview(makeCardView(
+
+        let academyCardView = makeCardView(
             title: "대치 탑클래스 학원",
             subtitle: "서울시 강남구 대치동",
             description: "주 3회, 일 4시간 집중 케어 수업. 학생 개인별 맞춤형 지도와 철저한 성적 관리 시스템을 제공합니다."
-        ))
+        )
 
+        academyCardView.isUserInteractionEnabled = true
+        academyCardView.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(didTapAcademyCard)
+            )
+        )
+
+        contentStackView.addArrangedSubview(academyCardView)
+
+        // 2️⃣ 즐겨찾는 게시판
         contentStackView.addArrangedSubview(makeSectionTitle("즐겨찾는 게시판"))
         contentStackView.addArrangedSubview(makeBoardView())
 
+        // 3️⃣ 최근 공지사항
         contentStackView.addArrangedSubview(makeSectionTitle("최근 공지사항"))
         contentStackView.addArrangedSubview(makeNoticeView())
+    }
+}
+
+
+extension HomeViewController {
+    @objc private func didTapAcademyCard() {
+        let viewController = AcademyDetailViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 }
 
