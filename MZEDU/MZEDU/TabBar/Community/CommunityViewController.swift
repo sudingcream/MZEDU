@@ -96,6 +96,13 @@ extension CommunityViewController: UITableViewDelegate, UITableViewDataSource {
         return view
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let vc = CommunityDetailViewController() 
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
  
     func tableView(
         _ tableView: UITableView,

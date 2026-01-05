@@ -21,6 +21,7 @@
 		324EFB492F03BCE400F9D047 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB482F03BCE300F9D047 /* UILabel+.swift */; };
 		43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D0DB1CEEAF6A57B43D40F /* Pods_MZEDU.framework */; };
 		445CF4712F0BF69100A6199A /* AcademyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4702F0BF69100A6199A /* AcademyDetailViewController.swift */; };
+		445CF4752F0C071600A6199A /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */; };
 		44ECDC4B2EFEF66500238450 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ECDC4A2EFEF66500238450 /* AppDelegate.swift */; };
 		44ECDC4D2EFEF66500238450 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ECDC4C2EFEF66500238450 /* SceneDelegate.swift */; };
 		44ECDC4F2EFEF66500238450 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44ECDC4E2EFEF66500238450 /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFinishViewController.swift; sourceTree = "<group>"; };
 		324EFB482F03BCE300F9D047 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		445CF4702F0BF69100A6199A /* AcademyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyDetailViewController.swift; sourceTree = "<group>"; };
+		445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		44ECDC472EFEF66500238450 /* MZEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MZEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44ECDC4A2EFEF66500238450 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44ECDC4C2EFEF66500238450 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				324EFB302F024D2700F9D047 /* CommunityPostCell.swift */,
 				44ECDC692EFEF6D200238450 /* CommunityViewController.swift */,
 				324EFB322F024F8400F9D047 /* CommunityWriteViewController.swift */,
+				445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				44ECDC642EFEF6B100238450 /* MainTabBarController.swift in Sources */,
 				445CF4712F0BF69100A6199A /* AcademyDetailViewController.swift in Sources */,
 				44ECDC4D2EFEF66500238450 /* SceneDelegate.swift in Sources */,
+				445CF4752F0C071600A6199A /* CommunityDetailViewController.swift in Sources */,
 				44ECDC662EFEF6B900238450 /* TabBarItemFactory.swift in Sources */,
 				44ECDC682EFEF6C300238450 /* HomeViewController.swift in Sources */,
 				324EFB452F0393DF00F9D047 /* TeacherRegisterViewController.swift in Sources */,

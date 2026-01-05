@@ -100,6 +100,16 @@ extension AcademyDetailViewController {
         reviewButton.setTitleColor(.white, for: .normal)
         reviewButton.titleLabel?.font = .boldSystemFont(ofSize: 16)
         reviewButton.layer.cornerRadius = 12
+        reviewButton.addTarget(self, action: #selector(didTapWriteReview), for: .touchUpInside)
+
+    }
+}
+
+extension AcademyDetailViewController {
+    @objc private func didTapWriteReview() {
+        let vc = WriteReviewViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
@@ -197,6 +207,7 @@ extension AcademyDetailViewController {
 private extension AcademyDetailViewController {
     @objc private func didTapBack() {
         navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
 }
 
@@ -257,6 +268,7 @@ private extension AcademyDetailViewController {
 }
 
 private extension AcademyDetailViewController {
+    
     private func makeStarRatingView(rating: Int) -> UIStackView {
         let stackView = UIStackView()
         stackView.axis = .horizontal
