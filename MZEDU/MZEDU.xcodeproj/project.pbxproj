@@ -19,6 +19,8 @@
 		324EFB452F0393DF00F9D047 /* TeacherRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB442F0393D800F9D047 /* TeacherRegisterViewController.swift */; };
 		324EFB472F03A64300F9D047 /* RegisterFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */; };
 		324EFB492F03BCE400F9D047 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB482F03BCE300F9D047 /* UILabel+.swift */; };
+		324EFB562F0CDD4200F9D047 /* NidThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB552F0CDD4200F9D047 /* NidThirdPartyLogin */; };
+		324EFB592F0CF33E00F9D047 /* login.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 324EFB582F0CF33E00F9D047 /* login.mp4 */; };
 		43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D0DB1CEEAF6A57B43D40F /* Pods_MZEDU.framework */; };
 		445CF4712F0BF69100A6199A /* AcademyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4702F0BF69100A6199A /* AcademyDetailViewController.swift */; };
 		445CF4752F0C071600A6199A /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */; };
@@ -49,6 +51,7 @@
 		324EFB442F0393D800F9D047 /* TeacherRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherRegisterViewController.swift; sourceTree = "<group>"; };
 		324EFB462F03A63300F9D047 /* RegisterFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFinishViewController.swift; sourceTree = "<group>"; };
 		324EFB482F03BCE300F9D047 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		324EFB582F0CF33E00F9D047 /* login.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = login.mp4; sourceTree = "<group>"; };
 		445CF4702F0BF69100A6199A /* AcademyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcademyDetailViewController.swift; sourceTree = "<group>"; };
 		445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		44ECDC472EFEF66500238450 /* MZEDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MZEDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */,
+				324EFB562F0CDD4200F9D047 /* NidThirdPartyLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +112,14 @@
 				324EFB2E2F0233C600F9D047 /* AuthManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		324EFB572F0CF33300F9D047 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				324EFB582F0CF33E00F9D047 /* login.mp4 */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		445CF46D2F0BF68200A6199A /* Academy */ = {
@@ -139,6 +151,7 @@
 		44ECDC492EFEF66500238450 /* MZEDU */ = {
 			isa = PBXGroup;
 			children = (
+				324EFB572F0CF33300F9D047 /* Utils */,
 				324EFB342F026CF900F9D047 /* Entity */,
 				324EFB2D2F0233BE00F9D047 /* Manager */,
 				324EFB2A2F021ECF00F9D047 /* Views */,
@@ -283,6 +296,9 @@
 				Base,
 			);
 			mainGroup = 44ECDC3E2EFEF66500238450;
+			packageReferences = (
+				324EFB542F0CDD4200F9D047 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */,
+			);
 			productRefGroup = 44ECDC482EFEF66500238450 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -298,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44ECDC542EFEF66600238450 /* Assets.xcassets in Resources */,
+				324EFB592F0CF33E00F9D047 /* login.mp4 in Resources */,
 				44ECDC572EFEF66600238450 /* Base in Resources */,
 				44ECDC522EFEF66500238450 /* Base in Resources */,
 			);
@@ -613,6 +630,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		324EFB542F0CDD4200F9D047 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/naver/naveridlogin-sdk-ios-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		324EFB552F0CDD4200F9D047 /* NidThirdPartyLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB542F0CDD4200F9D047 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */;
+			productName = NidThirdPartyLogin;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44ECDC3F2EFEF66500238450 /* Project object */;
 }
