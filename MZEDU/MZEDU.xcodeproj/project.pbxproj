@@ -21,6 +21,11 @@
 		324EFB492F03BCE400F9D047 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324EFB482F03BCE300F9D047 /* UILabel+.swift */; };
 		324EFB562F0CDD4200F9D047 /* NidThirdPartyLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB552F0CDD4200F9D047 /* NidThirdPartyLogin */; };
 		324EFB592F0CF33E00F9D047 /* login.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 324EFB582F0CF33E00F9D047 /* login.mp4 */; };
+		324EFB5C2F0DF53700F9D047 /* KakaoSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB5B2F0DF53700F9D047 /* KakaoSDK */; };
+		324EFB5E2F0DF53700F9D047 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB5D2F0DF53700F9D047 /* KakaoSDKAuth */; };
+		324EFB602F0DF53700F9D047 /* KakaoSDKCert in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB5F2F0DF53700F9D047 /* KakaoSDKCert */; };
+		324EFB622F0DF53700F9D047 /* KakaoSDKCertCore in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB612F0DF53700F9D047 /* KakaoSDKCertCore */; };
+		324EFB642F0DF53700F9D047 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 324EFB632F0DF53700F9D047 /* KakaoSDKCommon */; };
 		43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844D0DB1CEEAF6A57B43D40F /* Pods_MZEDU.framework */; };
 		445CF4712F0BF69100A6199A /* AcademyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4702F0BF69100A6199A /* AcademyDetailViewController.swift */; };
 		445CF4752F0C071600A6199A /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445CF4742F0C071600A6199A /* CommunityDetailViewController.swift */; };
@@ -85,7 +90,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				43ABB5DB28F62A98E9B00D72 /* Pods_MZEDU.framework in Frameworks */,
+				324EFB642F0DF53700F9D047 /* KakaoSDKCommon in Frameworks */,
 				324EFB562F0CDD4200F9D047 /* NidThirdPartyLogin in Frameworks */,
+				324EFB622F0DF53700F9D047 /* KakaoSDKCertCore in Frameworks */,
+				324EFB5C2F0DF53700F9D047 /* KakaoSDK in Frameworks */,
+				324EFB5E2F0DF53700F9D047 /* KakaoSDKAuth in Frameworks */,
+				324EFB602F0DF53700F9D047 /* KakaoSDKCert in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +308,7 @@
 			mainGroup = 44ECDC3E2EFEF66500238450;
 			packageReferences = (
 				324EFB542F0CDD4200F9D047 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */,
+				324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 44ECDC482EFEF66500238450 /* Products */;
 			projectDirPath = "";
@@ -552,6 +563,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MZEDU/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영을 위해 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 선택하기 위해 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -562,7 +575,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.MZEDU;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.MZEDUbetty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -586,6 +599,8 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MZEDU/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영을 위해 필요합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진을 선택하기 위해 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -596,7 +611,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.MZEDU;
+				PRODUCT_BUNDLE_IDENTIFIER = com.iOS.MZEDUbetty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -640,6 +655,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.27.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -647,6 +670,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 324EFB542F0CDD4200F9D047 /* XCRemoteSwiftPackageReference "naveridlogin-sdk-ios-swift" */;
 			productName = NidThirdPartyLogin;
+		};
+		324EFB5B2F0DF53700F9D047 /* KakaoSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDK;
+		};
+		324EFB5D2F0DF53700F9D047 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		324EFB5F2F0DF53700F9D047 /* KakaoSDKCert */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCert;
+		};
+		324EFB612F0DF53700F9D047 /* KakaoSDKCertCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCertCore;
+		};
+		324EFB632F0DF53700F9D047 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 324EFB5A2F0DF53700F9D047 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

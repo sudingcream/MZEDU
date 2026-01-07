@@ -4,21 +4,16 @@ import NidThirdPartyLogin
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
     func scene(
         _ scene: UIScene,
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-
+        guard let windowScene = scene as? UIWindowScene else { return }
+        
         window = UIWindow(windowScene: windowScene)
-
-        if AuthManager.shared.isLoggedIn {
-            window?.rootViewController = LoginViewController()
-        } else {
-            window?.rootViewController = MainTabBarController()
-        }
+        window?.rootViewController = LoginViewController()
         window?.makeKeyAndVisible()
     }
     
@@ -27,10 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
          openURLContexts URLContexts: Set<UIOpenURLContext>
      ) {
          guard let url = URLContexts.first?.url else { return }
-
+ 
          if NidOAuth.shared.handleURL(url) {
              return
          } 
      }
 }
-               
