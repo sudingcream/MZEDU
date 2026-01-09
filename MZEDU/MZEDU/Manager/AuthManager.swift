@@ -1,11 +1,3 @@
-//
-//  AuthManager.swift
-//  MZEDU
-//
-//  Created by 수진잉 on 12/29/25.
-//
-
-// AuthManager.swift
 import Foundation
 
 final class AuthManager {
@@ -13,18 +5,17 @@ final class AuthManager {
     static let shared = AuthManager()
     private init() {}
 
-    var isLoggedIn: Bool {
-        return UserDefaults.standard.bool(forKey: "isLoggedIn")
+    private let isLoggedInKey = "isLoggedIn"
 
-        // 토큰 기반일때
-        // return KeychainManager.shared.accessToken != nil
+    var isLoggedIn: Bool {
+        UserDefaults.standard.bool(forKey: isLoggedInKey)
     }
 
     func login() {
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        UserDefaults.standard.set(true, forKey: isLoggedInKey)
     }
 
     func logout() {
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
+        UserDefaults.standard.set(false, forKey: isLoggedInKey)
     }
 }

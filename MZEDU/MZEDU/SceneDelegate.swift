@@ -1,5 +1,6 @@
 import UIKit
 import NidThirdPartyLogin
+import KakaoSDKAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -11,10 +12,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let windowScene = scene as? UIWindowScene else { return }
-        
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = LoginViewController()
-        window?.makeKeyAndVisible()
+
+        let window = UIWindow(windowScene: windowScene)
+
+        if AuthManager.shared.isLoggedIn {
+            window.rootViewController = MainTabBarController()
+        } else {
+            window.rootViewController = LoginViewController()
+        }
+
+        self.window = window
+        window.makeKeyAndVisible()
     }
     
     func scene(
@@ -25,6 +33,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
  
          if NidOAuth.shared.handleURL(url) {
              return
-         } 
+         }
+         if AuthApi.isKakaoTalkLoginUrl(url) {
+             _ = AuthController.handleOpenUrl(url: url)
+             return
+         }
      }
 }
