@@ -134,25 +134,6 @@ extension LoginViewController {
         print("🟡 Kakao button tapped")
         print("🟡 isKakaoTalkLoginAvailable:", UserApi.isKakaoTalkLoginAvailable())
         KakaoLogin()
-//        if UserApi.isKakaoTalkLoginAvailable() {
-//            UserApi.shared.loginWithKakaoTalk { [weak self] _, error in
-//                if let error = error {
-//                    print("❌ 카카오 로그인 실패:", error)
-//                } else {
-//                    print("✅ 카카오 로그인 성공")
-//                    self?.loginSuccess()
-//                }
-//            }
-//        } else {
-//            UserApi.shared.loginWithKakaoAccount { [weak self] _, error in
-//                if let error = error {
-//                    print("❌ 카카오 로그인 실패:", error)
-//                } else {
-//                    print("✅ 카카오 로그인 성공")
-//                    self?.loginSuccess()
-//                }
-//            }
-//        }
     }
     
     func kakaoLonginWithApp() {
@@ -160,8 +141,11 @@ extension LoginViewController {
             if let error = error {
                 print("❌ 카카오 로그인 실패:", error)
             } else {
+                let token = oauthToken?.accessToken ?? ""
                 print("✅ loginWithKakaoTalk success")
-                print("token:", oauthToken?.accessToken ?? "")
+                print("token:", token)
+
+                self?.sendKakaoTokenToServer(token)
 
                 DispatchQueue.main.async {
                     self?.loginSuccess()
@@ -270,6 +254,36 @@ extension LoginViewController {
             animations: nil
         )
     }
+    
+    func sendKakaoTokenToServer(_ token: String) {
+        guard let url = URL(string: "http://localhost:3000/auth/kakao") else {
+            print("❌ invalid url")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body: [String: Any] = [
+            "accessToken": token
+        ]
+
+        request.httpBody = try? JSONSerialization.data(withJSONObject: body)
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("❌ server error:", error)
+                return
+            }
+
+            if let data = data,
+               let json = try? JSONSerialization.jsonObject(with: data) {
+                print("✅ server response:", json)
+            }
+        }.resume()
+    }
+
 
 }
 
